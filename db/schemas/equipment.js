@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const profileSchema = require('./profileSchema')
+//const projectsSchema = require('./projects')
 const Schema = mongoose.Schema
 
 
@@ -11,4 +11,6 @@ const equipmentSchema = new Schema({
   
 })
 
-module.exports = equipmentSchema
+module.exports = {
+  equipmentSchema
+}

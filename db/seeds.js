@@ -1,9 +1,9 @@
 require('dotenv').config()
 const mongoose = require('mongoose')
 //getting the models from the schema files
-const User= require('../models/user')
-const Projects = require('../models/projects')
-const Equipments = require('../models/equipment')
+const User= require('../models/User')
+const Project = require('../models/Projects')
+const Equipment = require('../models/Equipment')
 // separate from the server
 
 mongoose.connect(process.env.MONGODB_URI)
@@ -28,7 +28,7 @@ const camera = new Equipment({
 
 const flash = new Equipment ({
     name: 'Cannon-SPEEDLITE 470EX-AI',
-    description: 'World's First Flash Equipped with an AI Bounce Function',
+    description: 'First Flash Equipped with an AI Bounce Function',
 
 })
 const lens = new Equipment({
@@ -74,17 +74,17 @@ const user = new User({
 //remove all old information
 //returns a promise. this is asynchronise 
 
-Projects.remove().then(() => {
+Project.remove().then(() => {
     //returns another promise here. 
 
-    return Projects.remove()
+    return Project.remove()
 }).then(() => {
     /// build out new profiles and projects
     // and save them to the database
 
-    return Projects.insertMany([, wedding, fashion, portrait])
+    return Project.insertMany([, wedding, fashion, portrait])
 }).then(() => {
-    console.log('Saved succeffully')
+    console.log('Saved succesfully')
     db.close()
 }).catch((err) => {
     console.log(err)
