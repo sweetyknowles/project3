@@ -1,7 +1,7 @@
-const mongoose = require('mongoose')
-const equipment = require('../db/schemas/equipment.js')
+// const mongoose = require('mongoose')
+// const {equipment} = require('../db/schemas/equipment.js')
 
 
-const Equipments = mongoose.model('Equipment', equipment)
+// const Equipments = mongoose.model('Equipment', {equipment})
 
-module.exports = Equipments
+// module.exports = Equipments

@@ -31,15 +31,19 @@ app.get('/', (req, res) => {
 //bringing in the react client side.
 // app.use(express.static(`${__dirname}/client/build`));
 
-// const creatureController = require("./controllers/creatureController");
-// app.use("/api/creatures", creatureController);
+// set up routes
+const userController = require('./controllers/userController')
+app.use('/api/user', userController)
+
+
+
+app.get("/*", (req, res) =>{
+res.sendFile(`${__dirname}/client/build/index.html`)
+})
 
 // Exposes the Static Javascript HTML and CSS we need to run the app
 
-//below your api routes
-// app.get("/*", (req, res) => {
-//   res.sendFile(`${__dirname}/client/build/index.html`);
-// });
+
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {

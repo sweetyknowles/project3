@@ -1,12 +1,17 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-const project = require('./projects')
+const {ProjectsSchema} = require('./projects')
 
 
-const User = new Schema({
+const UserSchema = new Schema({
   name: String,
-  projects:[ project ]
+  projects:[ProjectsSchema]
 
 })
+//Model
+const User = mongoose.model('User', UserSchema )
 
-module.exports = User
+module.exports = {
+  User, 
+  UserSchema
+}
