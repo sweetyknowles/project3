@@ -29,14 +29,14 @@ app.get('/', (req, res) => {
 })
 
 //bringing in the react client side.
-// app.use(express.static(`${__dirname}/client/build`));
+ app.use(express.static(`${__dirname}/client/build`));
 
 // set up routes
 const userController = require('./controllers/userController')
 app.use('/api/user', userController)
 
 
-
+//below you api routes
 app.get("/*", (req, res) =>{
 res.sendFile(`${__dirname}/client/build/index.html`)
 })

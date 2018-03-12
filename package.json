@@ -1,5 +1,5 @@
 {
-  "name": "wdi14-idea-board",
+  "name": "project3",
   "version": "1.0.0",
   "description": "",
   "engines": {
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sweetyknowles/bogappone"
+    "url": "https://github.com/sweetyknowles/project3"
   },
   "keywords": [],
   "author": "",
