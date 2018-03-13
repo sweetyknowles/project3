@@ -13,11 +13,11 @@ class Users extends Component {
   }
 
   getAllUsers = async () => {
-    const res = await axios.get('/api/users')
+    const res = await axios.get('/api/user')
     this.setState({users: res.data})
   }
-  toggleNewUserForm= () => {
-    this.setState({toggleNewCreatureForm: !this.state.NewUserForm})
+  toggleShowNewForm= () => {
+    this.setState({showNewForm: !this.state.showNewForm})
   }
   addNewUser = (newUser) => {
     const newUserList = [ ...this.state.userList ]
@@ -30,16 +30,17 @@ class Users extends Component {
   render () {
     return (
       <div>
-        <h1>Welcome to The Bog</h1>
+        <h1>Welcome to Your Photography Projects Library</h1>
         {this.state.users.map(user => (
           <Link key={user._id} to={`/${user._id}`}>
             <h3>Name: {user.name}</h3>
-            <p>Description: {user.description}</p>
+
           </Link>
         ))}
-        <button onClick={this.toggleNewUserForm}>Create New</button>
+        <button onClick={this.toggleShowNewForm}>Create New</button>
 
-        {this.state.NewUserForm ? <NewCreatureForm getAllUser={this.getAllUsers}/> : null}
+        {this.state.showNewForm ?
+        <NewUserForm getAllUsers={this.getAllUsers}/> : null}
       </div>
     )
   }

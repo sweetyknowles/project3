@@ -5,7 +5,7 @@ const {equipmentSchema} = require("./equipment");
 
 const ProjectsSchema = new Schema({
   name: "String",
-  Date: "number",
+  Date: "String",
   location: "String",
   Equipment: [equipmentSchema]
 });
