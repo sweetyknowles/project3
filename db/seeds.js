@@ -72,32 +72,7 @@ const alicia = new User({
   projects: [wildlife, wedding]
 });
 
-// remove all old information
-// returns a promise. this is asynchronise
 
-// remove all Equipment
-// Equipment.remove()
-//   .then(() => {
-//     // then remove all Project
-//     Project.remove();
-//   })
-//   .then(() => {
-//     // then remove all Users and save to DB
-//     return User.remove();
-//   })
-//   .then(() => {
-//     return User.insertMany([julio]);
-//   })
-//   .then(() => {
-//     // close the database
-//     console.log("Keep the calender clean!");
-//     db.close();
-//   })
-//   .catch(err => {
-//     // if there are any errors, log it and then close the db
-//     console.log(err);
-//     db.close();
-//   });
 
 
 User.remove({})
