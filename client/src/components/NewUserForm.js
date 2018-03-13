@@ -6,8 +6,8 @@ class NewUserForm extends Component {
   state = {
     
     name: "",
-    location: "",
-    equipment: "",
+    project: "",
+    
   };
 
   handleChange = event => {
@@ -59,33 +59,9 @@ class NewUserForm extends Component {
           />
         </div>
         
-        <div>
-          <label htmlFor="description">Venue: </label>
-          <input
-            onChange={this.handleChange}
-            type="text"
-            name="location"
-            value={this.state.location}
-          />
-        </div>
-        <div>
-          <label htmlFor="description">Date: </label>
-          <input
-            onChange={this.handleChange}
-            type="text"
-            name="date"
-            value={this.state.date}
-          />
-        </div>
-        <div>
-          <label htmlFor="description">type: </label>
-          <input
-            onChange={this.handleChange}
-            type="text"
-            name="type"
-            value={this.state.type}
-          />
-        </div>
+        
+       
+       
         <button>Submit</button>
       </form>
     );

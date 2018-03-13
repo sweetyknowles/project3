@@ -67,6 +67,8 @@ const julio = new User({
 
 const alicia = new User({
   name: "Alicia Marquee",
+  location:"Madrid, Spain",
+  Date:"12.12.13",
   projects: [wildlife, wedding]
 });
 

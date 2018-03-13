@@ -32,6 +32,7 @@ class SingleUser extends Component {
 
              
             </div>
+            
          )
        })
      }
