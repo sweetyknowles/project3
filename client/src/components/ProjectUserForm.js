@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-class NewUserForm extends Component {
+class NewProjectForm extends Component {
   state = {
     name: "",
     project: ""
@@ -21,21 +21,12 @@ class NewUserForm extends Component {
       location: this.state.location,
       equipment: this.state.equipment
     };
-    await axios.post("/api/user", payload);
-    await this.props.getAllUsers();
+    await axios.post("/api/projects", payload);
+    await this.props.getAllProject();
   };
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <div>
-          <label htmlFor="name">Image URL: </label>
-          <input
-            onChange={this.handleChange}
-            type="text"
-            name="image"
-            value={this.state.image}
-          />
-        </div>
         <div>
           <label htmlFor="description">Name: </label>
           <input
@@ -46,13 +37,13 @@ class NewUserForm extends Component {
           />
         </div>
         <div>
-          {/* <label htmlFor="description">Project: </label>
+          <label htmlFor="description">Project: </label>
           <input
             onChange={this.handleChange}
             type="text"
             name="project"
             value={this.state.project}
-          /> */}
+          />
         </div>
 
         <button>Submit</button>
@@ -60,4 +51,4 @@ class NewUserForm extends Component {
     );
   }
 }
-export default NewUserForm;
+export default NewProjectForm;
