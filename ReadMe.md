@@ -1,11 +1,12 @@
 
 Full-Stack MERN Application
 The project evaluated my ability to use (MongoDB/Express/React/Node.js) Stack application
-Click here to see a more detailed description of the assignment.
 
-About this project:
+Photographer Project Library
 
-I developed an application that allows users to build flashcards to study for tests.
+This app is designed to help photographers keep their each photography session(photo shoots) in one place under projects. Since photographers will be able to have their own user profile, where they can add, delete, update their projects and thier user accounts. This library will hold the information about their photo shoots,such as the date, type of the shoot, location and who was the model including the equipment used for each photo session.
+
+
 
  my ERD
 
@@ -17,15 +18,10 @@ Click here to see my Trello Board that contains my user story management
 
 Technologies and libraries I used:
 
-I used React.js, Node.js with Express, MongoDB, Mongoose and all of the dependencies that each of those packages have
-I also used React Router and Styled Component packages
-In Version 2, I would like to add:
+ React.js, Node.js with Express, MongoDB, Mongoose and all of the dependencies that each of those packages 
+ React Router and Styled Component packages
 
-User authentication
-A more skeuomorphic UI for the flashcard review
-Progressive Web App features so the flashcards can be reviewed offline
-A way for users to share collections of flashcards with other users
-I used different syntax in places
+
 
 As I developed this app, I used various syntax to make sure I understood the variations. For example, in the same component or router, I used both .then and async/await versions of promises. I understand this is not a good way to build production code, but I wanted to use the project to improve my understanding of the syntax options. I have made comments in the code to explain my method.
 Major takeaways:
