@@ -1,48 +1,69 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-class NewProjectForm extends Component {
+class ProjectUserForm extends Component {
   state = {
-    name: "",
-    project: ""
+    project: {
+      name: "",
+      date: "",
+      location: ""
+    },
+    
   };
 
   handleChange = event => {
     const name = event.target.name;
-    const newState = { ...this.state };
+    const newState = { ...this.state.project };
     newState[name] = event.target.value;
-    this.setState(newState);
+    this.setState({ project: newState });
   };
+
+
   handleSubmit = async event => {
     event.preventDefault();
     const payload = {
-      name: this.state.name,
-      projects: [],
-      location: this.state.location,
-      equipment: this.state.equipment
+      name: this.state.project.name,
+      date: this.state.project.date,
+      location: this.state.project.location
     };
-    await axios.post("/api/projects", payload);
-    await this.props.getAllProject();
+
+    const res = await axios.post(`/api/user/${this.props.id}/project`, payload);    
+    //await this.props.getAllProject();
+    this.setState({
+      project : res.data
+    })
+    console.log('from the submit',res)
   };
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
         <div>
-          <label htmlFor="description">Name: </label>
+          <label htmlFor="name">Name: </label>
           <input
             onChange={this.handleChange}
             type="text"
             name="name"
-            value={this.state.name}
+            value={this.state.project.name}
           />
         </div>
+
         <div>
-          <label htmlFor="description">Project: </label>
+          <label htmlFor="date">Date: </label>
           <input
             onChange={this.handleChange}
             type="text"
-            name="project"
-            value={this.state.project}
+            name="date"
+            value={this.state.project.date}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="location">location: </label>
+          <input
+            onChange={this.handleChange}
+            type="text"
+            name="location"
+            value={this.state.project.location}
           />
         </div>
 
@@ -51,4 +72,4 @@ class NewProjectForm extends Component {
     );
   }
 }
-export default NewProjectForm;
+export default ProjectUserForm;

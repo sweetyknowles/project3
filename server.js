@@ -35,6 +35,8 @@ app.get('/', (req, res) => {
 const userController = require('./controllers/userController')
 app.use('/api/user', userController)
 
+const projectsController = require('./controllers/projectsController')
+app.use('/api/user/:id/project', projectsController)
 
 //below you api routes
 app.get("/*", (req, res) =>{

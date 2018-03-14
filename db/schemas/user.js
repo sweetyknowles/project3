@@ -5,7 +5,6 @@ const {ProjectsSchema} = require('./projects')
 
 const UserSchema = new Schema({
   name: String,
-  Date: String,
   location: String,
   projects:[ProjectsSchema]
 

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { Redirect } from "react-router";
 import UpdateUser from "./UpdateUser";
-//import ProjectUserForm from "./ProjectUserForm"
+import ProjectUserForm from "./ProjectUserForm";
 class SingleUser extends Component {
   state = {
     user: {
@@ -11,7 +11,8 @@ class SingleUser extends Component {
     },
     updateUser: false,
     //equipment: [],
-    redirect: false
+    redirect: false,
+    projectAdd: false
   };
 
   toggleShowUpdate = () => {
@@ -36,6 +37,10 @@ class SingleUser extends Component {
         console.log(err);
       });
   };
+
+  toggleProjectAdd = () => {
+    this.setState({ projectAdd: !this.state.projectAdd})
+  }
   render() {
     if (this.state.redirect === true) {
       return <Redirect to="/" />;
@@ -48,9 +53,15 @@ class SingleUser extends Component {
         <h2>Name:{this.state.user.name}</h2>
         <h3>Project List:</h3>
 
+        <button onClick={this.toggleProjectAdd}> Create new Project </button>
+        {this.state.projectAdd ? <ProjectUserForm 
+        project={this.state.project}
+          id={this.props.match.params.id}
+        /> : null}
+
         {this.state.user.projects.map(project => {
           return (
-            <div>
+            <div key={project.id}>
               <h4> Project: {project.name}</h4>
               <p> Date: {project.Date}</p>
               <p> Location: {project.location}</p>

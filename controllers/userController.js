@@ -1,10 +1,12 @@
 const express = require("express");
-const { User } = require("../db/schemas/user");
+const  User   = require("../db/schemas/user");
 const router = express.Router();
+
+UserModel = User.User
 
 //get all users
 router.get("/", (req, res) => {
-  User.find()
+  UserModel.find()
     .then(user => {
       res.json(user);
     })
@@ -18,7 +20,7 @@ router.get("/", (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const userId = req.params.id;
-    const user = await User.findById(userId);
+    const user = await UserModel.findById(userId);
     res.json(user);
   } catch (err) {
     console.log(err);
@@ -31,7 +33,7 @@ router.post("/", async (req, res) => {
   try {
     const newUser = req.body;
     console.log(newUser);
-    const savedUser = await User.create(newUser);
+    const savedUser = await UserModel.create(newUser);
     res.json(savedUser);
   } catch (err) {
     console.log(err);
@@ -43,8 +45,9 @@ router.post("/", async (req, res) => {
 router.put("/:id", async (req, res) => {
   try {
     const userId = req.params.id;
+    console.log(userId)
     const updatedUser = req.body;
-    const savedUser = await Users.findByIdAndUpdate(userId, updatedUser);
+    const savedUser = await UserModel.findByIdAndUpdate(userId, updatedUser);
     res.json(savedUser);
   } catch (err) {
     console.log(err);
@@ -56,7 +59,7 @@ router.put("/:id", async (req, res) => {
 router.delete("/:id", async (req, res) => {
   try {
     const userId = req.params.id;
-    await User.findByIdAndRemove(userId);
+    await UserModel.findByIdAndRemove(userId);
     res.json({
       msg: "Successfully Removed"
     });

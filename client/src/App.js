@@ -5,13 +5,19 @@ import SingleUser from './components/SingleUser'
 //import UpdateUser from './components/UpdateUser'
 class App extends Component {
   
+
+   
   render () {
+    const ProjectWrapper = (props) => {
+      return <SingleUser {...props}/>
+    }
+
     return (
       <Router>
         <div>
           <Switch>
             <Route exact path="/" component={Users}/>
-            <Route path="/:id" component={SingleUser}/> 
+            <Route path="/:id" render={ProjectWrapper}/> 
             {/* <Route exact path="/:id" component={UpdateUser}/> */}
           </Switch>
         </div>
