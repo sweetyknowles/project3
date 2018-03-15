@@ -7,7 +7,7 @@ import LoginPage from './components/Login/LoginPage'
 
 import NavBar from "./components/styled-components/NavBar";
 import { injectGlobal } from "styled-components";
-//import UpdateUser from './components/UpdateUser'
+import UpdateUser from './components/UpdateUser'
 
 injectGlobal`
 @import url('https://fonts.googleapis.com/css?family=Great+Vibes');

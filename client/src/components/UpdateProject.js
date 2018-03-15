@@ -4,11 +4,12 @@ import axios from "axios";
 
 class UpdateProject extends Component {
   state = {
+    projects:{},
     
     updatedProject: {}
   };
   handleChange = event => {
-    const project = { ...this.state.project};
+    const project = { ...this.state.projects};
     project[event.target.name] = event.target.value;
     this.setState({ project });
   };
@@ -30,10 +31,14 @@ class UpdateProject extends Component {
         console.log(err);
       });
   };
+
+  
+
   render() {
     return (
       <div>
-        <form onSubmit={this.editUser}>
+        
+        <form onSubmit={this.editProject}>
           
           <div>
             <label htmlFor="name">Name: </label>
@@ -41,8 +46,8 @@ class UpdateProject extends Component {
               onChange={this.handleChange}
               type="text"
               name="name"
-              value={this.state.user.name}
-              placeholder={this.props.user.name}
+              value={this.state.projects.name}
+              placeholder={this.props.project.name}
             />
           </div>
           
@@ -52,8 +57,8 @@ class UpdateProject extends Component {
               onChange={this.handleChange}
               type="text"
               name="location"
-              value={this.state.user.location}
-              placeholder={this.props.user.location}
+              value={this.state.projects.location}
+              placeholder={this.props.project.location}
             />
           </div>
           <div>
@@ -62,8 +67,8 @@ class UpdateProject extends Component {
               onChange={this.handleChange}
               type="text"
               name="projects"
-              value={this.state.user.projects}
-              placeholder={this.props.user.projects}
+              value={this.state.projects}
+              placeholder={this.props.projects}
             />
           </div>
           

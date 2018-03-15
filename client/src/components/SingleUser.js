@@ -4,7 +4,8 @@ import styled from "styled-components";
 import axios from "axios";
 import { Redirect } from "react-router";
 import UpdateUser from "./UpdateUser";
-import ProjectUserForm from "./ProjectUserForm";
+import UpdateProject from "./UpdateProject";
+import ProjectUserForm from "./ProjectUserForm"
 import NavBar from "./styled-components/NavBar";
 
 const BodyContentWrapper = styled.div`
@@ -19,12 +20,15 @@ class SingleUser extends Component {
     updateUser: false,
     //equipment: [],
     redirect: false,
-    projectAdd: false
+    projectAdd: false,
+    updateProject: false,
   };
 
   toggleShowUpdate = () => {
     this.setState({ updateUser: !this.state.updateUser });
   };
+  
+  
 
   async componentWillMount() {
     const userId = this.props.match.params.id;
@@ -48,31 +52,35 @@ class SingleUser extends Component {
   toggleProjectAdd = () => {
     this.setState({ projectAdd: !this.state.projectAdd });
   };
+toggleUpdateProject = () =>{
+  this.setState({ updateProject: !this.state.updateProject})
+}
+
   render() {
     if (this.state.redirect === true) {
       return <Redirect to="/" />;
     }
 
-    console.log(this.state.user);
+    //console.log(this.state.user);
+    
     return (
       <div>
         <NavBar />
 
         <BodyContentWrapper>
           <h2>Name:{this.state.user.name}</h2>
-        
-              <div>
-                <button onClick={this.toggleShowUpdate}>
+          
+          <button onClick={this.toggleShowUpdate}>
                   Edit {this.state.user.name}
-                ) : null}
-              {this.state.updateUser ? (
+                </button>
+                {this.state.updateUser ? (
                 <UpdateUser user={this.state.user} />
               ) : null}
-                </button><br/>
-                <button onClick={this.remove}>
+
+              <button onClick={this.remove}>
                 Delete {this.state.user.name}
               </button>
-              </div>
+          
           <hr />
         
 
@@ -90,6 +98,20 @@ class SingleUser extends Component {
               id={this.props.match.params.id}
             />
           ) : null}
+<button onClick={this.toggleUpdateProject}>
+                  Edit 
+                </button>
+                {this.state.updateProject ? (
+                <UpdateProject project={this.state.updateProject} />
+              ) : null}
+
+              <button onClick={this.remove}>
+                Delete {this.state.projects.Addproject}
+              </button>
+          
+              <div>
+                
+              </div>
               
             </div>
           );
