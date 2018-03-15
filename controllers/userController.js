@@ -1,8 +1,8 @@
 const express = require("express");
-const  User   = require("../db/schemas/user");
+const User = require("../db/schemas/user");
 const router = express.Router();
 
-UserModel = User.User
+UserModel = User.User;
 
 //get all users
 router.get("/", (req, res) => {
@@ -45,7 +45,7 @@ router.post("/", async (req, res) => {
 router.put("/:id", async (req, res) => {
   try {
     const userId = req.params.id;
-    console.log(userId)
+    console.log(userId);
     const updatedUser = req.body;
     const savedUser = await UserModel.findByIdAndUpdate(userId, updatedUser);
     res.json(savedUser);

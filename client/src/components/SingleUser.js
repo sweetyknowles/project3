@@ -1,9 +1,16 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 import axios from "axios";
 import { Redirect } from "react-router";
 import UpdateUser from "./UpdateUser";
 import ProjectUserForm from "./ProjectUserForm";
+import NavBar from "./styled-components/NavBar";
+
+const BodyContentWrapper = styled.div`
+  font-family: "Niconne", cursive;
+  text-align: center;
+`;
 class SingleUser extends Component {
   state = {
     user: {
@@ -39,8 +46,8 @@ class SingleUser extends Component {
   };
 
   toggleProjectAdd = () => {
-    this.setState({ projectAdd: !this.state.projectAdd})
-  }
+    this.setState({ projectAdd: !this.state.projectAdd });
+  };
   render() {
     if (this.state.redirect === true) {
       return <Redirect to="/" />;
@@ -49,15 +56,21 @@ class SingleUser extends Component {
     console.log(this.state.user);
     return (
       <div>
-        <Link to="/">All Users</Link>
-        <h2>Name:{this.state.user.name}</h2>
-        <h3>Project List:</h3>
+        <NavBar />
 
-        <button onClick={this.toggleProjectAdd}> Create new Project </button>
-        {this.state.projectAdd ? <ProjectUserForm 
-        project={this.state.project}
-          id={this.props.match.params.id}
-        /> : null}
+        <BodyContentWrapper>
+          <h2>Name:{this.state.user.name}</h2>
+          
+
+          <button onClick={this.toggleProjectAdd}> Create new Project </button>
+          {this.state.projectAdd ? (
+            <ProjectUserForm
+              project={this.state.project}
+              id={this.props.match.params.id}
+            />
+          ) : null}
+          <hr />
+        </BodyContentWrapper>
 
         {this.state.user.projects.map(project => {
           return (
@@ -70,7 +83,7 @@ class SingleUser extends Component {
               </button>
               <div>
                 <button onClick={this.toggleShowUpdate}>
-                  Update {this.state.user.name}
+                  Edit {this.state.user.name}
                 </button>
               </div>
               {this.state.updateUser ? (

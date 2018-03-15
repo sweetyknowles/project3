@@ -1,9 +1,9 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
 //getting the models from the schema files
-const {User} = require("./schemas/user");
-const {Project} = require("./schemas/projects");
-const {Equipment} = require("./schemas/equipment");
+const { User } = require("./schemas/user");
+const { Project } = require("./schemas/projects");
+const { Equipment } = require("./schemas/equipment");
 // separate from the server
 
 mongoose.connect(process.env.MONGODB_URI);
@@ -62,22 +62,19 @@ const wildlife = new Project({
 
 const julio = new User({
   name: "Julio Munios",
-  projects: [ wedding]
+  projects: [wedding]
 });
 
 const alicia = new User({
   name: "Alicia Marquee",
-  location:"Madrid, Spain",
-  Date:"12.12.13",
+  location: "Madrid, Spain",
+  Date: "12.12.13",
   projects: [wildlife, wedding]
 });
 
-
-
-
 User.remove({})
-    .then(() => julio.save())
-    .then(() => alicia.save())
-    .then(() => console.log('SAVED!'))
-    .then(() => mongoose.connection.close())
-    .catch((err) => console.log(err))
+  .then(() => julio.save())
+  .then(() => alicia.save())
+  .then(() => console.log("SAVED!"))
+  .then(() => mongoose.connection.close())
+  .catch(err => console.log(err));

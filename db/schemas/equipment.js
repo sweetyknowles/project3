@@ -7,9 +7,7 @@ const equipmentSchema = new Schema({
   description: "String"
 });
 
-
 //MODEL
-const Equipment = mongoose.model('Equipment', equipmentSchema)
-
+const Equipment = mongoose.model("Equipment", equipmentSchema);
 
 module.exports = { Equipment, equipmentSchema };

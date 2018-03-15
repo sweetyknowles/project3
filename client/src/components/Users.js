@@ -1,7 +1,15 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 import axios from "axios";
 import NewUserForm from "./NewUserForm";
+import NavBar from "./styled-components/NavBar";
+
+const ContentWrapper = styled.div`
+  font-family: "Dancing Script", cursive;
+  text-align: center;
+`
+
 
 class Users extends Component {
   state = {
@@ -30,17 +38,27 @@ class Users extends Component {
   render() {
     return (
       <div>
-        <h1>Welcome to Your Photography Projects Library</h1>
-        {this.state.users.map(user => (
-          <Link key={user._id} to={`/${user._id}`}>
-            <h3>Name: {user.name}</h3>
-          </Link>
-        ))}
-        <button onClick={this.toggleShowNewForm}>Create New</button>
+        <NavBar />
+        <ContentWrapper>
+          <h1>Get Organized!</h1>
 
-        {this.state.showNewForm ? (
-          <NewUserForm getAllUsers={this.getAllUsers} />
-        ) : null}
+          {this.state.users.map(user => (
+            <Link key={user._id} to={`/${user._id}`}>
+              <h3>
+                Photography Projects by:<br/>
+                
+                 {user.name}
+                
+              </h3>
+              <hr />
+            </Link>
+          ))}
+          <button onClick={this.toggleShowNewForm}>Create New</button>
+
+          {this.state.showNewForm ? (
+            <NewUserForm getAllUsers={this.getAllUsers} />
+          ) : null}
+        </ContentWrapper>
       </div>
     );
   }

@@ -24,28 +24,26 @@ app.use(logger("dev"));
 
 app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
-  res.send("Hello World")
-})
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
 
 //bringing in the react client side.
- app.use(express.static(`${__dirname}/client/build`));
+app.use(express.static(`${__dirname}/client/build`));
 
 // set up routes
-const userController = require('./controllers/userController')
-app.use('/api/user', userController)
+const userController = require("./controllers/userController");
+app.use("/api/user", userController);
 
-const projectsController = require('./controllers/projectsController')
-app.use('/api/user/:id/project', projectsController)
+const projectsController = require("./controllers/projectsController");
+app.use("/api/user/:id/project", projectsController);
 
 //below you api routes
-app.get("/*", (req, res) =>{
-res.sendFile(`${__dirname}/client/build/index.html`)
-})
+app.get("/*", (req, res) => {
+  res.sendFile(`${__dirname}/client/build/index.html`);
+});
 
 // Exposes the Static Javascript HTML and CSS we need to run the app
-
-
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {

@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
-
+import styled from "styled-components";
 class ProjectUserForm extends Component {
   state = {
     project: {
       name: "",
       date: "",
       location: ""
-    },
-    
+    }
   };
 
   handleChange = event => {
@@ -18,7 +17,6 @@ class ProjectUserForm extends Component {
     this.setState({ project: newState });
   };
 
-
   handleSubmit = async event => {
     event.preventDefault();
     const payload = {
@@ -27,12 +25,12 @@ class ProjectUserForm extends Component {
       location: this.state.project.location
     };
 
-    const res = await axios.post(`/api/user/${this.props.id}/project`, payload);    
+    const res = await axios.post(`/api/user/${this.props.id}/project`, payload);
     //await this.props.getAllProject();
     this.setState({
-      project : res.data
-    })
-    console.log('from the submit',res)
+      project: res.data
+    });
+    console.log("from the submit", res);
   };
   render() {
     return (

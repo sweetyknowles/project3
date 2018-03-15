@@ -1,18 +1,16 @@
-const mongoose = require('mongoose')
-const Schema = mongoose.Schema
-const {ProjectsSchema} = require('./projects')
-
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+const { ProjectsSchema } = require("./projects");
 
 const UserSchema = new Schema({
   name: String,
   location: String,
-  projects:[ProjectsSchema]
-
-})
+  projects: [ProjectsSchema]
+});
 //Model
-const User = mongoose.model('User', UserSchema )
+const User = mongoose.model("User", UserSchema);
 
 module.exports = {
-  User, 
+  User,
   UserSchema
-}
+};

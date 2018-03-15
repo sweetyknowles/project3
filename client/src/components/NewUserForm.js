@@ -27,15 +27,7 @@ class NewUserForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <div>
-          <label htmlFor="name">Image URL: </label>
-          <input
-            onChange={this.handleChange}
-            type="text"
-            name="image"
-            value={this.state.image}
-          />
-        </div>
+        
         <div>
           <label htmlFor="description">Name: </label>
           <input
