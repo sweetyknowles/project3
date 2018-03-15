@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-
 class UpdateUser extends Component {
   state = {
     user: {},
@@ -13,7 +12,7 @@ class UpdateUser extends Component {
     this.setState({ user });
   };
   componentDidMount() {
-    const user= this.props;
+    const user = this.props;
     this.setState({ user: user });
   }
   editUser = event => {
@@ -23,7 +22,7 @@ class UpdateUser extends Component {
     axios
       .put(`/api/user/${userId}`, payload)
       .then(res => {
-          this.setState({ user: res.data })
+        this.setState({ user: res.data });
         //console.log("photos!", res.data);
       })
       .catch(err => {
@@ -34,7 +33,6 @@ class UpdateUser extends Component {
     return (
       <div>
         <form onSubmit={this.editUser}>
-          
           <div>
             <label htmlFor="name">Name: </label>
             <input
@@ -45,7 +43,7 @@ class UpdateUser extends Component {
               placeholder={this.props.user.name}
             />
           </div>
-          
+
           <div>
             <label htmlFor="name">Location: </label>
             <input
@@ -56,8 +54,7 @@ class UpdateUser extends Component {
               placeholder={this.props.user.location}
             />
           </div>
-          
-          
+
           <div>
             <button>Update</button>
           </div>

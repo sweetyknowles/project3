@@ -5,13 +5,14 @@ import axios from "axios";
 import { Redirect } from "react-router";
 import UpdateUser from "./UpdateUser";
 import UpdateProject from "./UpdateProject";
-import ProjectUserForm from "./ProjectUserForm"
+import ProjectUserForm from "./ProjectUserForm";
 import NavBar from "./styled-components/NavBar";
 
 const BodyContentWrapper = styled.div`
   font-family: "Niconne", cursive;
   text-align: center;
 `;
+
 class SingleUser extends Component {
   state = {
     user: {
@@ -21,14 +22,12 @@ class SingleUser extends Component {
     //equipment: [],
     redirect: false,
     projectAdd: false,
-    updateProject: false,
+    updateProject: false
   };
 
   toggleShowUpdate = () => {
     this.setState({ updateUser: !this.state.updateUser });
   };
-  
-  
 
   async componentWillMount() {
     const userId = this.props.match.params.id;
@@ -52,9 +51,9 @@ class SingleUser extends Component {
   toggleProjectAdd = () => {
     this.setState({ projectAdd: !this.state.projectAdd });
   };
-toggleUpdateProject = () =>{
-  this.setState({ updateProject: !this.state.updateProject})
-}
+  toggleUpdateProject = () => {
+    this.setState({ updateProject: !this.state.updateProject });
+  };
 
   render() {
     if (this.state.redirect === true) {
@@ -62,61 +61,51 @@ toggleUpdateProject = () =>{
     }
 
     //console.log(this.state.user);
-    
+
     return (
       <div>
         <NavBar />
 
         <BodyContentWrapper>
           <h2>Name:{this.state.user.name}</h2>
-          
+
           <button onClick={this.toggleShowUpdate}>
-                  Edit {this.state.user.name}
-                </button>
-                {this.state.updateUser ? (
-                <UpdateUser user={this.state.user} />
-              ) : null}
+            Edit {this.state.user.name}
+          </button>
 
-              <button onClick={this.remove}>
-                Delete {this.state.user.name}
-              </button>
-          
-          <hr />
-        
+          {this.state.updateUser ? <UpdateUser user={this.state.user} /> : null}
 
-        {this.state.user.projects.map(project => {
-          return (
-            <div key={project.id}>
-              <h4> Project: {project.name}</h4>
-              <p> Date: {project.Date}</p>
-              <p> Location: {project.location}</p>
-              
-              <button onClick={this.toggleProjectAdd}> Create new Project </button>
+          <button onClick={this.remove}>Delete {this.state.user.name}</button>
+
+          <button onClick={this.toggleProjectAdd}> Create new Project </button>
           {this.state.projectAdd ? (
             <ProjectUserForm
               project={this.state.project}
               id={this.props.match.params.id}
             />
           ) : null}
-<button onClick={this.toggleUpdateProject}>
-                  Edit 
-                </button>
-                {this.state.updateProject ? (
-                <UpdateProject project={this.state.updateProject} />
-              ) : null}
 
-              <button onClick={this.remove}>
-                Delete {this.state.projects.Addproject}
-              </button>
-          
-              <div>
-                
+          <hr />
+
+          {this.state.user.projects.map(project => {
+            return (
+              <div key={project.id}>
+                <h4> Project: {project.name}</h4>
+                <p> Date: {project.Date}</p>
+                <p> Location: {project.location}</p>
+
+                <button onClick={this.toggleUpdateProject}>Edit Project</button>
+                {this.state.updateProject ? (
+                  <UpdateProject project={this.state.updateProject} />
+                ) : null}
+
+                <button onClick={this.remove}>Delete Project</button>
+
+                <div />
               </div>
-              
-            </div>
-          );
-        })}
-         </BodyContentWrapper>
+            );
+          })}
+        </BodyContentWrapper>
       </div>
     );
   }

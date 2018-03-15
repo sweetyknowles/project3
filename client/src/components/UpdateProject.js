@@ -1,20 +1,19 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-
 class UpdateProject extends Component {
   state = {
-    projects:{},
-    
+    projects: {},
+
     updatedProject: {}
   };
   handleChange = event => {
-    const project = { ...this.state.projects};
+    const project = { ...this.state.projects };
     project[event.target.name] = event.target.value;
     this.setState({ project });
   };
   componentDidMount() {
-    const project= this.props;
+    const project = this.props;
     this.setState({ project: project });
   }
   editUser = event => {
@@ -24,7 +23,7 @@ class UpdateProject extends Component {
     axios
       .put(`/api/user/${userId}`, payload)
       .then(res => {
-          this.setState({ user: res.data })
+        this.setState({ user: res.data });
         console.log("photos!", res.data);
       })
       .catch(err => {
@@ -32,14 +31,10 @@ class UpdateProject extends Component {
       });
   };
 
-  
-
   render() {
     return (
       <div>
-        
         <form onSubmit={this.editProject}>
-          
           <div>
             <label htmlFor="name">Name: </label>
             <input
@@ -50,7 +45,7 @@ class UpdateProject extends Component {
               placeholder={this.props.project.name}
             />
           </div>
-          
+
           <div>
             <label htmlFor="name">Location: </label>
             <input
@@ -71,7 +66,7 @@ class UpdateProject extends Component {
               placeholder={this.props.projects}
             />
           </div>
-          
+
           <div>
             <button>Update</button>
           </div>

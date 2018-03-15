@@ -8,8 +8,7 @@ import NavBar from "./styled-components/NavBar";
 const ContentWrapper = styled.div`
   font-family: "Dancing Script", cursive;
   text-align: center;
-`
-
+`;
 
 class Users extends Component {
   state = {
@@ -46,20 +45,15 @@ class Users extends Component {
             <NewUserForm getAllUsers={this.getAllUsers} />
           ) : null}
 
-
           {this.state.users.map(user => (
             <Link key={user._id} to={`/${user._id}`}>
               <h3>
-                Photography Projects by:<br/>
-                
-                 {user.name}
-                
+                Photography Projects by:<br />
+                {user.name}
               </h3>
               <hr />
             </Link>
           ))}
-          
-          
         </ContentWrapper>
       </div>
     );
