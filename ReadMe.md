@@ -1,32 +1,70 @@
 
 Full-Stack MERN Application
-The project evaluated my ability to use (MongoDB/Express/React/Node.js) Stack application
+The project evaluated the ability to use (MongoDB/Express/React/Node.js) Stack application
 
 Photographer Project Library
 
-This app is designed to help photographers keep their each photography session(photo shoots) in one place under projects. Since photographers will be able to have their own user profile, where they can add, delete, update their projects and thier user accounts. This library will hold the information about their photo shoots,such as the date, type of the shoot, location and who was the model including the equipment used for each photo session.
+This app is designed to help photographers keep their photography projects(photo shoots) in one place.This application allows to Create, Read, Update and Delete users.As the users get in their accounts], they should be able to Create, Readm Update and Delete the details of their projects along with the contents of the projects. 
+
+ This Photographers' Projects library will mainly hold the information about their photo shoots(types),with  dates, locations and equipment used for that particular photoshoot.
 
 
 
- my ERD
+  ERD Diagram 
 
- Deployed App
+ https://i.imgur.com/Lr0JJ3J.jpg
+
+
+  Wirerame 
+
+https://i.imgur.com/7FgdD4e.jpg or
+  
+ Deployed App to Heroku.
+
+ https://photocalender.herokuapp.com/
+
+
 
 Click here to see my Trello Board that contains my user story management
 
+https://trello.com/b/JrBuhB3Y/project-3
 
 
-Technologies and libraries I used:
 
- React.js, Node.js with Express, MongoDB, Mongoose and all of the dependencies that each of those packages 
+/*Technologies and libraries I used:
+
+ React.js,
+  Node.js with Express,
+ MongoDB,
+ Mongoose 
  React Router and Styled Component packages
 
 
 
-As I developed this app, I used various syntax to make sure I understood the variations. For example, in the same component or router, I used both .then and async/await versions of promises. I understand this is not a good way to build production code, but I wanted to use the project to improve my understanding of the syntax options. I have made comments in the code to explain my method.
-Major takeaways:
+To this project,I would like to add:
 
-Mobile first is (still) hard; I made progress on mobile first since my last project, but I still had issues. I wanted to fix some of the styling suggestions from the instructors for the second project. I had to do some trial and error styling because Google dev tools does not take into account the mobile browser tool bars for safari. I am sure there are still some issues for other mobile browsers.
-Understanding the "shape" of the data; Shape of the data is definitely (probably) a phrase I made up. Once I got a good handle on how the data was passing between the client and the server (object, array, array of objects, etc), I was able to fly through the CRUD functions for both updating the database and setting the state.
-Systems thinking is valuable; This is an extension of the previous takeaway. The value of applying the models from basic systems thinking to the development of complex full-stack applications cannot be overstated. The entire app is just a series of feedback loops. Once I understood the cause and effect relationships between the individual elements of the system, I was able to isolate the points of leverage, and then I could select the most efficient solution to each problem.
-Reviewing previous takeaways; This is a carryover from the last project, but still played such a huge part of this project that I feel like I must include it. I believe iterative learning is important enough to justify this takeaway.
+User authentication
+-The ability for  users to perform a full add,update and delete their photos.
+-I intend to get the second and third model working, for this library to take its full shape. The nestesd routes are not easy; but as a developer I  certainly wold like to achieve it. 
+-A way for users to share collections of thier photo shoots with other users
+
+
+
+During this project, I used the differnt syntax in the code, it is not a great way of coding. However, the code provided functionality for a full crud to atleast one model. I learnt alot about the complexity and the functionality of how the code works. It was challening to bring everything together. I understand alot of the code that is written out; I tried to comment at some code.
+
+
+My major takeaways:
+
+Better understanding of backend and front end functionality. 
+Understanding the complexity of the components in react.
+Understanding how the routing works, and the flow of the data between client and server such objects, arrays, array of objects. 
+which made it some what easy to achieve CRUD function. I understand as the flow of data gets more nested it becomes more complex;however I feel that it can be achieved once e understand the fundamental basics of how thing move around in MERN Full Stack Application. 
+
+I understand more how important it is to identify the relationships between models via Entity Relationship Diagrams. The application is a mostly loops running and picking the ids through each model. I got a relative understanding of devtools and its usage, which helped me debug through errors.And invest into them a bit more deeply. This project -MERN application is not an easy one. How ever with my expereince I can conclude that it is acheievable. As much as it was challenging, it was also sort of fun with a good sense achievement. 
+
+
+
+
+
+
+
