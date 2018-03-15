@@ -24,7 +24,7 @@ class UpdateUser extends Component {
       .put(`/api/user/${userId}`, payload)
       .then(res => {
           this.setState({ user: res.data })
-        console.log("photos!", res.data);
+        //console.log("photos!", res.data);
       })
       .catch(err => {
         console.log(err);
@@ -56,16 +56,7 @@ class UpdateUser extends Component {
               placeholder={this.props.user.location}
             />
           </div>
-          <div>
-            <label htmlFor="name">Projects: </label>
-            <input
-              onChange={this.handleChange}
-              type="text"
-              name="projects"
-              value={this.state.user.projects}
-              placeholder={this.props.user.projects}
-            />
-          </div>
+          
           
           <div>
             <button>Update</button>

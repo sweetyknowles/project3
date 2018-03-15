@@ -75,4 +75,4 @@ class UpdateProject extends Component {
     );
   }
 }
-export default UpdateUser;
+export default UpdateProject;

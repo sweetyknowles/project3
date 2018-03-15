@@ -41,6 +41,11 @@ class Users extends Component {
         <NavBar />
         <ContentWrapper>
           <h1>Get Organized!</h1>
+          <button onClick={this.toggleShowNewForm}>Sign Up</button>
+          {this.state.showNewForm ? (
+            <NewUserForm getAllUsers={this.getAllUsers} />
+          ) : null}
+
 
           {this.state.users.map(user => (
             <Link key={user._id} to={`/${user._id}`}>
@@ -53,11 +58,8 @@ class Users extends Component {
               <hr />
             </Link>
           ))}
-          <button onClick={this.toggleShowNewForm}>Create New</button>
-
-          {this.state.showNewForm ? (
-            <NewUserForm getAllUsers={this.getAllUsers} />
-          ) : null}
+          
+          
         </ContentWrapper>
       </div>
     );

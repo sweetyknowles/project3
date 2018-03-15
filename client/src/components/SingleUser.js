@@ -60,17 +60,21 @@ class SingleUser extends Component {
 
         <BodyContentWrapper>
           <h2>Name:{this.state.user.name}</h2>
-          
-
-          <button onClick={this.toggleProjectAdd}> Create new Project </button>
-          {this.state.projectAdd ? (
-            <ProjectUserForm
-              project={this.state.project}
-              id={this.props.match.params.id}
-            />
-          ) : null}
+        
+              <div>
+                <button onClick={this.toggleShowUpdate}>
+                  Edit {this.state.user.name}
+                ) : null}
+              {this.state.updateUser ? (
+                <UpdateUser user={this.state.user} />
+              ) : null}
+                </button><br/>
+                <button onClick={this.remove}>
+                Delete {this.state.user.name}
+              </button>
+              </div>
           <hr />
-        </BodyContentWrapper>
+        
 
         {this.state.user.projects.map(project => {
           return (
@@ -78,20 +82,19 @@ class SingleUser extends Component {
               <h4> Project: {project.name}</h4>
               <p> Date: {project.Date}</p>
               <p> Location: {project.location}</p>
-              <button onClick={this.remove}>
-                Delete {this.state.user.name}
-              </button>
-              <div>
-                <button onClick={this.toggleShowUpdate}>
-                  Edit {this.state.user.name}
-                </button>
-              </div>
-              {this.state.updateUser ? (
-                <UpdateUser user={this.state.user} />
-              ) : null}
+              
+              <button onClick={this.toggleProjectAdd}> Create new Project </button>
+          {this.state.projectAdd ? (
+            <ProjectUserForm
+              project={this.state.project}
+              id={this.props.match.params.id}
+            />
+          ) : null}
+              
             </div>
           );
         })}
+         </BodyContentWrapper>
       </div>
     );
   }
