@@ -1,8 +1,8 @@
 
-###Full-Stack MERN Application
+***Full-Stack MERN Application***
 The project evaluated the ability to use (MongoDB/Express/React/Node.js) Stack application
 
-Photographer Project Library
+**Photographer Project Library**
 
 This app is designed to help photographers keep their photography projects(photo shoots) in one place.This application allows to Create, Read, Update and Delete users.As the users get in their accounts], they should be able to Create, Readm Update and Delete the details of their projects along with the contents of the projects. 
 
