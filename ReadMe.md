@@ -10,28 +10,28 @@ This app is designed to help photographers keep their photography projects(photo
 
 
 
-  ERD Diagram 
+  **ERD Diagram**
 
  https://i.imgur.com/Lr0JJ3J.jpg
 
 
-  Wirerame 
+  **Wirerame**
 
 https://i.imgur.com/7FgdD4e.jpg or
   
- Deployed App to Heroku.
+ **Deployed App to Heroku**.
 
  https://photocalender.herokuapp.com/
 
 
 
-Click here to see my Trello Board that contains my user story management
+Click here to see my **Trello Board** that contains my user story management
 
 https://trello.com/b/JrBuhB3Y/project-3
 
 
 
-/*Technologies and libraries I used:
+***Technologies and libraries I used:***
 
  React.js,
   Node.js with Express,
@@ -43,7 +43,7 @@ https://trello.com/b/JrBuhB3Y/project-3
 
 To this project,I would like to add:
 
-User authentication
+**User authentication
 -The ability for  users to perform a full add,update and delete their photos.
 -I intend to get the second and third model working, for this library to take its full shape. The nestesd routes are not easy; but as a developer I  certainly wold like to achieve it. 
 -A way for users to share collections of thier photo shoots with other users
