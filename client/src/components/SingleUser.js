@@ -106,6 +106,8 @@ class SingleUser extends Component {
                 <p> Date: {project.date}</p>
                 <p> Location: {project.location}</p>
 
+                <img src="https://i.imgur.com/Eqxjlr9.jpg" alt="collage"/>
+
                 <button onClick={this.toggleUpdateProject}>Edit Project</button>
                 {this.state.updateProject ? (
                   <UpdateProject project={this.state.updateProject} />
