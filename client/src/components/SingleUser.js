@@ -115,7 +115,7 @@ class SingleUser extends Component {
                 {/* <Wedwrapper>
                 <img src="https://i.imgur.com/Eqxjlr9.jpg" alt="collage"/>
                 </Wedwrapper> */}
-                
+
                 <button onClick={this.toggleUpdateProject}>Edit Project</button>
                 {this.state.updateProject ? (
                   <UpdateProject project={this.state.updateProject} />
