@@ -10,6 +10,14 @@ const NavBarStyles = styled.div`
   font-family: 'Great Vibes', cursive;
   font-size:30px;
   text-align: center;
+  margin-bottom: 0px;
+`
+
+const Wedwrapper = styled.div`
+
+align-content: center;
+height:10%;
+
 `
 
 class NavBar extends Component {
@@ -20,7 +28,9 @@ class NavBar extends Component {
         
             <Link to="/"></Link>
             <Link to="/">All Users</Link>
-            
+             <Wedwrapper>
+                <img src="https://i.imgur.com/Eqxjlr9.jpg" alt="collage"/>
+                </Wedwrapper> 
                     
           
       </NavBarStyles>
