@@ -14,11 +14,10 @@ const BodyContentWrapper = styled.div`
 `;
 
 
-const Wedwrapper = styled.div`
+// const Wedwrapper = styled.div`
 
-height: 5%;
-
-`
+//   height: 10%;
+// `;
 
 
 class SingleUser extends Component {
@@ -113,9 +112,9 @@ class SingleUser extends Component {
                 <h4> Project: {project.name}</h4>
                 <p> Date: {project.date}</p>
                 <p> Location: {project.location}</p>
-                <Wedwrapper>
+                {/* <Wedwrapper>
                 <img src="https://i.imgur.com/Eqxjlr9.jpg" alt="collage"/>
-                </Wedwrapper>
+                </Wedwrapper> */}
                 <button onClick={this.toggleUpdateProject}>Edit Project</button>
                 {this.state.updateProject ? (
                   <UpdateProject project={this.state.updateProject} />
