@@ -10,6 +10,7 @@ const ContentWrapper = styled.div`
   text-align: center;
 `;
 
+
 class Users extends Component {
   state = {
     users: [],
@@ -40,6 +41,9 @@ class Users extends Component {
         <NavBar />
         <ContentWrapper>
           <h1>Get Organized!</h1>
+          <div>
+          <img src="../images/moon.jpg" alt="collage"/>
+          </div>
           <button onClick={this.toggleShowNewForm}>Sign Up</button>
           {this.state.showNewForm ? (
             <NewUserForm getAllUsers={this.getAllUsers} />
