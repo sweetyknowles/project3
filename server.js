@@ -36,7 +36,7 @@ const userController = require("./controllers/userController");
 app.use("/api/user", userController);
 
 const projectsController = require("./controllers/projectsController");
-app.use("/api/user/:projectid/projects", projectsController);
+app.use("/api/user/:userId/project", projectsController);
 
 //below you api routes
 app.get("/*", (req, res) => {

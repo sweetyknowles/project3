@@ -32,6 +32,7 @@ class SingleUser extends Component {
   async componentWillMount() {
     const userId = this.props.match.params.id;
     const res = await axios.get(`/api/user/${userId}`);
+    console.log(res.data);
     const user = res.data;
     this.setState({ user });
     console.log(this.state.user);
@@ -42,6 +43,17 @@ class SingleUser extends Component {
     this.setState({ redirect: true });
     axios
       .delete(`/api/user/${userId}`)
+      .then(res => {})
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  removeProject = projectId => {
+    const userId = this.props.match.params.id;
+    this.setState({ redirect: true });
+    axios
+      .delete(`/api/user/${userId}/project/${projectId}`)
       .then(res => {})
       .catch(err => {
         console.log(err);
@@ -89,9 +101,9 @@ class SingleUser extends Component {
 
           {this.state.user.projects.map(project => {
             return (
-              <div key={project.id}>
+              <div key={project._id}>
                 <h4> Project: {project.name}</h4>
-                <p> Date: {project.Date}</p>
+                <p> Date: {project.date}</p>
                 <p> Location: {project.location}</p>
 
                 <button onClick={this.toggleUpdateProject}>Edit Project</button>
@@ -99,7 +111,9 @@ class SingleUser extends Component {
                   <UpdateProject project={this.state.updateProject} />
                 ) : null}
 
-                <button onClick={this.remove}>Delete Project</button>
+                <button onClick={() => this.removeProject(project._id)}>
+                  Delete Project
+                </button>
 
                 <div />
               </div>
