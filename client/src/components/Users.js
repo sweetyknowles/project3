@@ -13,7 +13,7 @@ const ContentWrapper = styled.div`
 const ImageWrapper = styled.div`
 img {
   width:20%;
-  align: right !important;
+  align-content: right !important;
 }
 `
 
