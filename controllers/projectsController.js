@@ -19,6 +19,25 @@ router.get("/", (req, res) => {
       console.log(err);
     });
 });
+// show gig
+router.get("/:id", (req, res) => {
+  const projectsId = req.params.id;
+  const projectId = req.params.projectId;
+  Projects.findById(projectId)
+    .then(project => {
+      const gig = project.projects.id(projectId);
+      res.json(project);
+    })
+    .catch(err => {
+      console.log(err);
+      res.json(err);
+    });
+});
+
+
+
+
+
 //create new project
 router.post("/", (req, res) => {
   //console.log(req.params.userId)
@@ -36,35 +55,56 @@ router.post("/", (req, res) => {
 });
 
 //get projects by ID.
-router.get("/:id", async (req, res) => {
-  console.log("This is  Show Route");
-  try {
-    const userId = req.params.userId;
-    console.log("USER ID", userId);
-    const user = await UserModel.findById(userId);
-    console.log("USER", user);
+// router.get("/:id", async (req, res) => {
+//   console.log("This is  Show Route");
+//   try {
+//     const userId = req.params.userId;
+//     console.log("USER ID", userId);
+//     const user = await UserModel.findById(userId);
+//     console.log("USER", user);
 
-    const project = user.projects.id(req.params.id);
-    res.json(project);
-  } catch (err) {
-    console.log(err);
-    res.json(err);
-  }
-});
+//     const project = user.projects.id(req.params.id);
+//     res.json(project);
+//   } catch (err) {
+//     console.log(err);
+//     res.json(err);
+//   }
+// });
 
-//Delete Projects
+// //Delete Projects
 
+// router.delete("/:id", (req, res) => {
+//   UserModel.findById(req.params.userid)
+//     .then(user => {
+//       const project = user.projects.id(req.params.id);
+//       console.log("this is project test", project);
+//       project.remove();
+//       return user.save();
+//     })
+//     .then(() => {
+//       res.json("THE PROJECT DELETED");
+//     });
+// });
+
+// delete gig
 router.delete("/:id", (req, res) => {
-  UserModel.findById(req.params.userid)
-    .then(user => {
-      const project = user.projects.id(req.params.id);
-      console.log("this is project test", project);
-      project.remove();
-      return user.save();
+  Projects.findById(req.params.projectId)
+    .then(project=> {
+      project.projects.id(req.params.id).remove();
+      return project.save();
     })
-    .then(() => {
-      res.json("THE PROJECT DELETED");
+    .then(savedProject => {
+      res.send(savedProject);
     });
 });
+
+
+
+
+
+
+
+
+
 
 module.exports = router;
