@@ -15,7 +15,8 @@ const BodyContentWrapper = styled.div`
 
 // const Wedwrapper = styled.div`
 
-//   height: 10%;
+//   width: 10% !important;
+//   align-content:center;
 // `;
 
 class SingleUser extends Component {
@@ -112,7 +113,7 @@ class SingleUser extends Component {
                 <p> Location: {project.location}</p>
                 {/* <Wedwrapper>
                 <img src="https://i.imgur.com/Eqxjlr9.jpg" alt="collage"/>
-                </Wedwrapper> */}
+                </Wedwrapper>  */}
 
                 <button onClick={this.toggleUpdateProject}>Edit Project</button>
                 {this.state.updateProject ? (
