@@ -11,11 +11,11 @@ const ContentWrapper = styled.div`
 `;
 
 const ImageWrapper = styled.div`
-img {
-  width:20%;
-  align-content: right !important;
-}
-`
+  img {
+    width: 20%;
+    align-content: right !important;
+  }
+`;
 
 class Users extends Component {
   state = {
@@ -48,7 +48,7 @@ class Users extends Component {
         <ContentWrapper>
           <h1>Get Organized!</h1>
           <ImageWrapper>
-          <img src="https://i.imgur.com/HbugK1a.jpg" alt="collage"/>
+            <img src="https://i.imgur.com/HbugK1a.jpg" alt="collage" />
           </ImageWrapper>
           <button onClick={this.toggleShowNewForm}>Sign Up</button>
           {this.state.showNewForm ? (

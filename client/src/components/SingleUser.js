@@ -13,12 +13,10 @@ const BodyContentWrapper = styled.div`
   text-align: center;
 `;
 
-
 // const Wedwrapper = styled.div`
 
 //   height: 10%;
 // `;
-
 
 class SingleUser extends Component {
   state = {
