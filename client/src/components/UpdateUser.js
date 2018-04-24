@@ -27,7 +27,13 @@ class UpdateUser extends Component {
       })
       .catch(err => {
         console.log(err);
-      });
+      })
+      .then(() => {
+        this.props.refreshUser();
+
+      }) 
+    
+      
   };
   render() {
     return (
@@ -40,7 +46,7 @@ class UpdateUser extends Component {
               type="text"
               name="name"
               value={this.state.user.name}
-              placeholder={this.props.user.name}
+              // placeholder={this.props.user.name}
             />
           </div>
 

@@ -13,11 +13,6 @@ const BodyContentWrapper = styled.div`
   text-align: center;
 `;
 
-// const Wedwrapper = styled.div`
-
-//   width: 10% !important;
-//   align-content:center;
-// `;
 
 class SingleUser extends Component {
   state = {
@@ -36,14 +31,16 @@ class SingleUser extends Component {
   };
 
   async componentWillMount() {
-    const userId = this.props.match.params.id;
+    this.getSingleUser()
+}
+getSingleUser = async () => {
+  const userId = this.props.match.params.id;
     const res = await axios.get(`/api/user/${userId}`);
     console.log(res.data);
     const user = res.data;
     this.setState({ user });
     console.log(this.state.user);
-  }
-
+}
   remove = () => {
     const userId = this.props.match.params.id;
     this.setState({ redirect: true });
@@ -91,14 +88,15 @@ class SingleUser extends Component {
             Edit {this.state.user.name}
           </button>
 
-          {this.state.updateUser ? <UpdateUser user={this.state.user} /> : null}
+          {this.state.updateUser ? <UpdateUser refreshUser={this.getSingleUser} user={this.state.user} /> : null}
 
           <button onClick={this.remove}>Delete {this.state.user.name}</button>
 
           <button onClick={this.toggleProjectAdd}> Create new Project </button>
           {this.state.projectAdd ? (
             <ProjectUserForm
-              project={this.state.project}
+              project={this.state.project} 
+              refreshProject={this.getSingleUser} 
               id={this.props.match.params.id}
             />
           ) : null}

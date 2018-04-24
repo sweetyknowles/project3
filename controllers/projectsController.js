@@ -51,6 +51,23 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+//Update User
+router.put("/:id", async (req, res) => {
+  try {
+    const userId = req.params.id;
+    console.log(userId);
+    const updatedUser = req.body;
+    const savedUser = await ProjectModel.findByIdAndUpdate(userId, updatedProject);
+    res.json(savedUser);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+
+
+
 //Delete Projects
 
 router.delete("/:id", (req, res) => {

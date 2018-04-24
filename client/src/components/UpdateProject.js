@@ -28,7 +28,10 @@ class UpdateProject extends Component {
       })
       .catch(err => {
         console.log(err);
-      });
+      })
+      .then (() =>{
+        this.props.refreshProject()
+      })
   };
 
   render() {

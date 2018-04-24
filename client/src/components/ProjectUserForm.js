@@ -29,8 +29,9 @@ class ProjectUserForm extends Component {
     //await this.props.getAllProject();
     this.setState({
       project: res.data
-    });
-    console.log("from the submit", res);
+    })
+    
+    
   };
   render() {
     return (
