@@ -20,7 +20,7 @@ class App extends Component {
         <div>
           <Switch>
             <Route exact path="/" component={Users} />
-            <Route path="/:id" render={ProjectWrapper} />
+            {/* <Route path="/:id" render={ProjectWrapper} /> */}
           </Switch>
         </div>
       </Router>
