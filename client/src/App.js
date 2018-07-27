@@ -6,8 +6,7 @@ import { injectGlobal } from "styled-components";
 
 injectGlobal`
 @import url('https://fonts.googleapis.com/css?family=Great+Vibes');
-@import url('https://fonts.googleapis.com/css?family=Niconne')
-</style>
+@import url('https://fonts.googleapis.com/css?family=Niconne');
 `;
 
 class App extends Component {
