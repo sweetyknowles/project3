@@ -14,8 +14,7 @@ const ImageWrapper = styled.div`
   img {
     width: 20%;
     align-content: right !important;
-  }
-`;
+  }`;
 
 class Users extends Component {
   state = {
@@ -30,9 +29,11 @@ class Users extends Component {
     const res = await axios.get("/api/user");
     this.setState({ users: res.data });
   };
+
   toggleShowNewForm = () => {
     this.setState({ showNewForm: !this.state.showNewForm });
   };
+  
   addNewUser = newUser => {
     const newUserList = [...this.state.userList];
 
@@ -52,7 +53,7 @@ class Users extends Component {
           </ImageWrapper>
           <button onClick={this.toggleShowNewForm}>Sign Up</button>
           {this.state.showNewForm ? (
-            <NewUserForm getAllUsers={this.getAllUsers} />
+            <NewUserForm getAllUsers={this.getAllUsers}  toggleShowNewForm={this.toggleShowNewForm} />
           ) : null}
 
           {this.state.users.map(user => (

@@ -8,33 +8,39 @@ class UpdateProject extends Component {
     updatedProject: {}
   };
   handleChange = event => {
+    const name = event.target.name
     const project = { ...this.state.projects };
-    project[event.target.name] = event.target.value;
-    this.setState({ project });
+    project[name] = event.target.value;
+    this.setState({ projects: project });
   };
   componentDidMount() {
-    const project = this.props;
-    this.setState({ project: project });
+    const projects = this.props.projects;
+    this.setState({ projects });
   }
-  editUser = event => {
+  editProject = event => {
     event.preventDefault();
-    const userId = this.props.user._id;
-    const payload = this.state.user;
+    const projectId = this.state.projects._id;
+    const payload = this.state.projects;
+    console.log(this.props.userId)
+    console.log(projectId)
+  
     axios
-      .put(`/api/user/${userId}`, payload)
+      .put(`/api/user/${this.props.userId}/project/${projectId}`, payload)
       .then(res => {
-        this.setState({ user: res.data });
+        this.setState({ projects: res.data });
         console.log("photos!", res.data);
       })
       .catch(err => {
         console.log(err);
       })
       .then (() =>{
-        this.props.refreshProject()
+        this.props.getSingleUser();
+        this.props.toggleUpdateProject();
       })
   };
 
   render() {
+
     return (
       <div>
         <form onSubmit={this.editProject}>
@@ -42,6 +48,7 @@ class UpdateProject extends Component {
             <label htmlFor="name">Name: </label>
             <input
               onChange={this.handleChange}
+              id="name"
               type="text"
               name="name"
               value={this.state.projects.name}
@@ -50,9 +57,10 @@ class UpdateProject extends Component {
           </div>
 
           <div>
-            <label htmlFor="name">Location: </label>
+            <label htmlFor="location">Location: </label>
             <input
               onChange={this.handleChange}
+              id="location"
               type="text"
               name="location"
               value={this.state.projects.location}
@@ -60,16 +68,16 @@ class UpdateProject extends Component {
             />
           </div>
           <div>
-            <label htmlFor="name">Projects: </label>
+            <label htmlFor="date">Date: </label>
             <input
               onChange={this.handleChange}
+              id="date"
               type="text"
-              name="projects"
-              value={this.state.projects}
-              placeholder={this.props.projects}
+              name="date"
+              value={this.state.projects.date}
+              placeholder={this.props.project.date}
             />
           </div>
-
           <div>
             <button>Update</button>
           </div>

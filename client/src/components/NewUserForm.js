@@ -23,6 +23,7 @@ class NewUserForm extends Component {
     };
     await axios.post("/api/user", payload);
     await this.props.getAllUsers();
+    await this.props.toggleShowNewForm();
   };
   render() {
     return (

@@ -98,12 +98,13 @@ getSingleUser = async () => {
               project={this.state.project} 
               refreshProject={this.getSingleUser} 
               id={this.props.match.params.id}
+              toggleProjectAdd={this.toggleProjectAdd}
             />
           ) : null}
 
           <hr />
 
-          {this.state.user.projects.map(project => {
+          {this.state.user.projects.map((project,i)  => {
             return (
               <div key={project._id}>
                 <h4> Project: {project.name}</h4>
@@ -115,7 +116,8 @@ getSingleUser = async () => {
 
                 <button onClick={this.toggleUpdateProject}>Edit Project</button>
                 {this.state.updateProject ? (
-                  <UpdateProject project={this.state.updateProject} />
+                  <UpdateProject projects={this.state.user.projects[i]} project={this.state.user.projects[i]} getSingleUser={this.getSingleUser}
+                  userId = {this.props.match.params.id} toggleUpdateProject={this.toggleUpdateProject} />
                 ) : null}
 
                 <button onClick={() => this.removeProject(project._id)}>

@@ -30,8 +30,8 @@ class ProjectUserForm extends Component {
     this.setState({
       project: res.data
     })
-    
-    
+    await this.props.refreshProject();
+    await this.props.toggleProjectAdd();
   };
   render() {
     return (
